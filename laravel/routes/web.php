@@ -19,7 +19,7 @@ Route::get('helloworld', function() {
 	return dd('Hola Mundo Laravel');
 });
 // Resource: Crea Automaticamente todas la rutas
-Route::resource('Article', 'ArticleController');
+// Route::resource('Article', 'ArticleController');
 
 // Any: Cualquier solicitud (get/post/put/delete)
 Route::any('show/articles', function() {
@@ -41,3 +41,10 @@ Route::get('show/user/{id}', function($id) {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Resources
+Route::resource('users', 'UserController');
+
+
+
