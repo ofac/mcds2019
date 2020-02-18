@@ -15,8 +15,7 @@
                 <thead>
                   <tr>
                     <th>Nombre Completo</th>
-                    {{-- class="d-sm-none d-md-block" --}}
-                    <th>Correo Electrónico</th>
+                    <th class="d-none d-sm-table-cell">Correo Electrónico</th>
                     <th>Foto</th>
                     <th>Acciones</th>
                   </tr>
@@ -25,7 +24,7 @@
                   @foreach ($users as $user)
                     <tr>
                       <td>{{ $user->fullname }}</td>
-                      <td>{{ $user->email }}</td>
+                      <td class="d-none d-sm-table-cell">{{ $user->email }}</td>
                       <td><img src="{{ asset($user->photo) }}" width="40px"></td>
                       <td>
                         <a href="" class="btn btn-indigo btn-sm">

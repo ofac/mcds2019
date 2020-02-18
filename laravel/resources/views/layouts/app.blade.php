@@ -35,7 +35,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @auth
+                            <li>
+                                <a class="nav-item nav-link" href="{{ url('home') }}">
+                                    <i class="fa fa-home"></i>
+                                    Inicio
+                                </a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -65,6 +72,19 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a href="{{ url('users') }}" class="dropdown-item">
+                                        <i class="fa fa-users"></i>
+                                        Módulo Usuarios
+                                    </a>
+                                    <a href="{{ url('categories') }}" class="dropdown-item">
+                                        <i class="fa fa-list"></i>
+                                        Módulo Categorías
+                                    </a>
+                                    <a href="{{ url('articles') }}" class="dropdown-item">
+                                        <i class="fa fa-newspaper-o"></i>
+                                        Módulo Artículos
+                                    </a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -87,5 +107,35 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        $(document).ready(function() {
+            // -----------------------------------------------
+            @if (session('message'))
+                Swal.fire(
+                  'Felicitaciones',
+                  '{{ session('message') }}',
+                  'success'
+                );
+            @endif
+            // -----------------------------------------------
+            $('.btn-upload').click(function(event) {
+                $('#photo').click();
+            });
+            // -----------------------------------------------
+            $('#photo').change(function(e) {
+                var fileName = e.target.files[0].name;
+                $("#file").val(fileName);
+
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(this.files[0]);
+            });
+            // -----------------------------------------------
+        });
+    </script>
 </body>
 </html>
