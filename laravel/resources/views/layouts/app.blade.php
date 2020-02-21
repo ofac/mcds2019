@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -81,7 +81,7 @@
                                         Módulo Categorías
                                     </a>
                                     <a href="{{ url('articles') }}" class="dropdown-item">
-                                        <i class="fa fa-newspaper-o"></i>
+                                        <i class="fa fa-newspaper"></i>
                                         Módulo Artículos
                                     </a>
                                     <div class="dropdown-divider"></div>
@@ -107,8 +107,8 @@
             @yield('content')
         </main>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/sweetalert2@9.js') }}"></script>
     <script>
         $(document).ready(function() {
             // -----------------------------------------------

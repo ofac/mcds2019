@@ -31,7 +31,7 @@
                           <i class="fa fa-search"></i>
                         </a>
                         <a href="" class="btn btn-indigo btn-sm">
-                          <i class="fa fa-pencil"></i>
+                          <i class="fa fa-pen"></i>
                         </a>
                         <a href="" class="btn btn-danger btn-sm">
                           <i class="fa fa-trash"></i>
