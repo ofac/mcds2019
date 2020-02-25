@@ -27,10 +27,10 @@
                       <td class="d-none d-sm-table-cell">{{ $user->email }}</td>
                       <td><img src="{{ asset($user->photo) }}" width="40px"></td>
                       <td>
-                        <a href="" class="btn btn-indigo btn-sm">
+                        <a href="{{ url('users/'.$user->id) }}" class="btn btn-indigo btn-sm">
                           <i class="fa fa-search"></i>
                         </a>
-                        <a href="" class="btn btn-indigo btn-sm">
+                        <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-indigo btn-sm">
                           <i class="fa fa-pen"></i>
                         </a>
                         <a href="" class="btn btn-danger btn-sm">
