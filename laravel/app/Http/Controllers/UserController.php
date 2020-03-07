@@ -96,23 +96,23 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
-        dd($request->all());
+        //dd($request->all());
 
-        // $user = User::find($id);
-        // $user->fullname  = $request->fullname;
-        // $user->email     = $request->email;
-        // $user->phone     = $request->phone;
-        // $user->birthdate = $request->birthdate;
-        // $user->gender    = $request->gender;
-        // $user->address   = $request->address;
-        // if ($request->hasFile('photo')) {
-        //     $file = time().'.'.$request->photo->extension();
-        //     $request->photo->move(public_path('imgs'), $file);
-        //     $user->photo = 'imgs/'.$file;
-        // }
-        // if ($user->save()) {
-        //     return redirect('users')->with('message', 'El Usuario: '.$user->fullname.' fue Modificado con Exito!');
-        // }
+        $user = User::find($id);
+        $user->fullname  = $request->fullname;
+        $user->email     = $request->email;
+        $user->phone     = $request->phone;
+        $user->birthdate = $request->birthdate;
+        $user->gender    = $request->gender;
+        $user->address   = $request->address;
+        if ($request->hasFile('photo')) {
+            $file = time().'.'.$request->photo->extension();
+            $request->photo->move(public_path('imgs'), $file);
+            $user->photo = 'imgs/'.$file;
+        }
+        if ($user->save()) {
+            return redirect('users')->with('message', 'El Usuario: '.$user->fullname.' fue Modificado con Exito!');
+        }
 
     }
 
@@ -124,6 +124,17 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //User::destroy($id);
+        $user = User::find($id);
+        if ($user->delete()) {
+            return redirect('users')->with('message', 'El Usuario: '.$user->fullname.' fue Eliminado con Exito!');
+        }
     }
+
+    public function pdf() {
+        $users = User::all();
+        $pdf = \PDF::loadView('users.pdf', compact('users'));
+        return $pdf->download('users.pdf');
+    }
+
 }

@@ -9,8 +9,11 @@
             <i class="fa fa-plus"></i> 
             Adicionar Usuario
           </a>
+          <a href="{{ url('generate/pdf/users') }}" class="btn btn-dark">
+            <i class="fa fa-file-pdf"></i> 
+            Generar Reporte
+          </a>
           <br><br>
-          
             <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
@@ -33,9 +36,13 @@
                         <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-indigo btn-sm">
                           <i class="fa fa-pen"></i>
                         </a>
-                        <a href="" class="btn btn-danger btn-sm">
-                          <i class="fa fa-trash"></i>
-                        </a>
+                        <form action="{{ url('users/'.$user->id) }}" method="post" style="display: inline-block;">
+                          @csrf
+                          @method('DELETE')
+                          <button type="button" class="btn btn-danger btn-sm btn-delete">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </form>
                       </td>
                     </tr>
                   @endforeach

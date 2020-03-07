@@ -42,9 +42,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 // Resources
 Route::resource('users', 'UserController');
+
+// Reports
+Route::get('generate/pdf/users', 'UserController@pdf');
 
 
 

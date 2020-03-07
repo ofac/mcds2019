@@ -112,6 +112,23 @@
     <script>
         $(document).ready(function() {
             // -----------------------------------------------
+            $('.btn-delete').click(function(event) {
+                Swal.fire({
+                  title: 'Esta usted Seguro?',
+                  text: "Desea Eliminar este registro!",
+                  icon: 'error',
+                  showCancelButton: true,
+                  confirmButtonColor: '#38c172',
+                  cancelButtonColor: '#e3342f',
+                  confirmButtonText: 'Aceptar',
+                  cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                  if (result.value) {
+                    $(this).parent().submit();
+                  }
+                })
+            });
+            // -----------------------------------------------
             @if (session('message'))
                 Swal.fire(
                   'Felicitaciones',
