@@ -48,7 +48,7 @@
 			<td> {{ $user->birthdate }} </td>
 			<td> {{ $user->gender }} </td>
 			<td> {{ $user->address }} </td>
-			<td></td>
+			<td> <img src="{{ public_path() . '/' . $user->photo }}" width="40px"> </td>
 		</tr>
 	@endforeach
 </table>

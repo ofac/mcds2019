@@ -10,3 +10,7 @@
 > php artisan serve
 
 > php artisan make:auth
+
+// Kill Process server
+> ps -ef | grep php
+> kill -9 numprocess
