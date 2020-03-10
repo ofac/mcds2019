@@ -47,6 +47,8 @@ Route::resource('users', 'UserController');
 
 // Reports
 Route::get('generate/pdf/users', 'UserController@pdf');
+Route::get('generate/excel/users', 'UserController@excel');
+
 
 
 

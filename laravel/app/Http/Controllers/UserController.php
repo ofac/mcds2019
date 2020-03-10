@@ -137,4 +137,8 @@ class UserController extends Controller
         return $pdf->download('users.pdf');
     }
 
+    public function excel() {
+        return \Excel::download(new UsersExport, 'users.xlsx');
+    }
+
 }

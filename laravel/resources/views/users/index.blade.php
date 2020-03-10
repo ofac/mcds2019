@@ -13,6 +13,10 @@
             <i class="fa fa-file-pdf"></i> 
             Generar Reporte PDF
           </a>
+          <a href="{{ url('generate/excel/users') }}" class="btn btn-indigo">
+            <i class="fa fa-file-excel"></i> 
+            Generar Reporte Excel
+          </a>
           <br><br>
             <table class="table table-striped table-bordered">
                 <thead>
