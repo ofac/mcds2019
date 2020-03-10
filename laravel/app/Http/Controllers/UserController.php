@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\UserRequest;
 
+use App\Exports\UsersExport;
+
 class UserController extends Controller
 {
     public function __construct() {
@@ -19,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         //$users = User::all();
-        $users = User::paginate(8);
+        $users = User::paginate(10);
         return view('users.index')->with('users', $users);
     }
 
